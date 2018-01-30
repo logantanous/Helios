@@ -14,11 +14,6 @@ function ComputerTerminal (status, name, buildingLocationNumber, roomNumber, loc
   this.failure = failure;
 }
 
-ComputerTerminal.prototype.askQuestion = function () {
-  var size = this.size;
-  return yourCost;
-};
-
 ComputerTerminal.prototype.verifyAnswer = function (answer) { // pass in the answer as array or string
   var compare = 0;
   for (var i=0; i < answer.length; i++) {
@@ -35,21 +30,10 @@ function testAnswer(myPrompt, x){
 }
 
 
-
 function getAnswer(myPrompt){
   var combo = "";
   var x = "";
-  // if (Array.isArray(myPrompt)){
-  //   alert("It's an array!");
-  //   alert("And it's got a length of " + myPrompt.length);
-  //   for (var i = 0; i < myPrompt.length; i++){
-  //     combo += myPrompt[i] + "\n";
-  //   }
-  //   x = prompt(combo);
-  // } else { x = prompt(myPrompt); }
-  // return x;
-  alert("My question type is: " + myPrompt);
-
+  // alert("My question type is: " + myPrompt);
   if (myPrompt.type ==="colors") {
     for (var i = 0; i < myPrompt.questionArray.length; i++){
       combo += myPrompt.questionArray[i] + "=";
@@ -77,21 +61,7 @@ function getAnswer(myPrompt){
 }
 
 function checkAnswer(answer, myAnswer){
-
-  // alert("Type of " + typeof answer);
-
-  // if (answer === myObject) {
-  //   alert("Correct!");
-  // }
-
-  // alert("My question type is: " + myAnswer.type);
-
   if (myAnswer.type === "colors") {
-    // for (var i = 0; i < myPrompt.questionArray.length; i++){
-    //   combo += myPrompt.questionArray[i] + "=";
-    // }
-    // combo = combo.slice(0, -1);
-    // x = prompt(combo);
     alert(myAnswer.type);   // works!! **********************************
     alert("Answer = " + answer);
     answer=answer.split("");
@@ -103,60 +73,60 @@ function checkAnswer(answer, myAnswer){
     }
     alert("COLORS!");
   } else if (myAnswer.type ==="questions") {
-    // for (var i = 0; i < myPrompt.questionArray.length; i++){
-    //   combo += myPrompt.questionArray[i] + "\n";
-    // }
-    // x = prompt(combo);
     alert("QUESTIONS!");
   } else if (myAnswer.type ==="keypad") {
     alert("KEYPAD!");
-    // for (var i = 0; i < (myPrompt.questionArray.length); i+=3){
-    //   combo += myPrompt.questionArray[i] + " : ";
-    //   combo += myPrompt.questionArray[i + 1] + " : ";
-    //   combo += myPrompt.questionArray[i + 2] + "\n";
-    // }
-    // x = prompt(combo);
   } else return "Destroyed!";
   // return x;
   return;
-
 }
+
 
 // User Interface Logic
 
+function drawKeypad(){
+  for (var i = 1; i < 10; i++) {
+    // myI = "<h2>" + " " + i + " " + "</h2>" + "<br>";
+    myI = "<h2>" + " " + i + " " + "</h2>";
+    $("#" + i).html(myI);
+  }
+}
+
 function showQuestion(someTerminal){
   var combo = "";
+  var combo1 = "";
   if (someTerminal.type ==="colors") {
     for (var i = 0; i < someTerminal.questionArray.length; i++){
       combo += someTerminal.questionArray[i] + "=";
     }
     combo = combo.slice(0, -1);
     x = prompt(combo); // this is prompting the user ********
-    $("#row1").html("<h3>" + combo + "</h3>");
+    $("#row1").html("<h2>" + combo + "</h2>");
     // alert("Drumroll: ");
     // if  (someTerminal.verifyAnswer(x)) { alert("It's true!"); }  // This verifies the answer!
   } else if (someTerminal.type ==="questions") {
+    alert("questions");
     for (var i = 0; i < someTerminal.questionArray.length; i++){
       combo += someTerminal.questionArray[i] + "\n";
+      combo1 += someTerminal.questionArray[i] + "<br><br>";
     }
     x = prompt(combo);
-    $("#row1").html("<h3>" + combo + "</h3>");
+    $("#row1").html("<h2>" + combo1 + "</h2>");
   } else if (someTerminal.type ==="keypad") {
     alert("KEYPAD!");
     for (var i = 0; i < (someTerminal.questionArray.length); i+=3){
       combo += someTerminal.questionArray[i] + " : ";
+      combo1 += someTerminal.questionArray[i] + " : ";
       combo += someTerminal.questionArray[i + 1] + " : ";
+      combo1 += someTerminal.questionArray[i + 1] + " : ";
       combo += someTerminal.questionArray[i + 2] + "\n";
+      combo1 += someTerminal.questionArray[i + 2] + "<br>";
     }
     x = prompt(combo);
-    $("#row1").html("<h3>" + combo + "</h3>");
+    $("#row1").html("<h2>" + combo1  + "</h2>");
   } else return "Destroyed!";
   return x;
 }
-
-
-
-
 
 $(document).ready(function() {
   myTerminal = new ComputerTerminal("Locked", "Terminal", 1, 1, 10, 10, "colors", ["R","G","B","Y","B"], ["R","G","B","Y","B"], "OPEN", "ALARM-5");
@@ -165,9 +135,13 @@ $(document).ready(function() {
   myKeypadTerminal = new ComputerTerminal("Locked", "Terminal", 1, 1, 10, 10, "keypad", [1,2,3,4,5,6,7,8,9], ["3"], "OPEN", "ALARM-5");
   var test = "";
 
-  var myKindOfTerminal = myTerminal ;
+  // var myKindOfTerminal = myTerminal ;
+  var myKindOfTerminal = myQuestionTerminal ;
+  // var myKindOfTerminal = myKeypadTerminal ;
+
   showQuestion(myKindOfTerminal);
 
+  drawKeypad();
 
   // var redundant = getAnswer("What is the ultimate answer?");
   // checkAnswer(redundant);

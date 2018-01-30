@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
 html {
   background:  url(../img/colossus.jpg)
   no-repeat center center fixed;
@@ -9,22 +11,53 @@ html {
 }
 
 body {
-  margin top: 0;
-  margin-right: 33%;
-  margin-left: 12%
-  padding: 10em;
+  font-family: 'Orbitron', 'Open Sans',serif;
+  margin-top: 1%;
+  margin-right: 15%;
+  margin-left: 12%;
+  padding: 2em;
   background: linear-gradient(turquoise, white);
+  position: absolute;
+  font-size: 2em;
 
+}
+
+.panel {
+  background: linear-gradient(rgb(110, 194, 79), rgb(78, 143, 54));
+  height: 35em;
+  padding: 2em;
 }
 
 .container {
   margin-top: 20%;
   margin-right: 15%;
-  padding: 5em;
-  background: linear-gradient(turquoise, white);
-
+  padding: 2em;
+  background: linear-gradient(gray, white);
 }
 
 .well {
   background: linear-gradient(gray, white);
+}
+
+/*.myrow{
+  border: 10px, black, dotted;
+}*/
+
+h2 {
+  border: 10px, solid, black;
+}
+
+
+.key {
+  border: 2px solid black;
+  margin: 5px, 5px, 5px, 5px;
+  /*padding: 1em;*/
+  width: 80px;
+  height: 70px;
+  background: linear-gradient(gray, white);
+  text-align: center;
+  font-weight: bolder;
+  /*float:left;
+  position: relative;*/
+  /*font-style: oblique;*/
 }
