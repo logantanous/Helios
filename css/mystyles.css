@@ -19,7 +19,6 @@ body {
   background: linear-gradient(turquoise, white);
   position: absolute;
   font-size: 2em;
-
 }
 
 .panel {
@@ -47,6 +46,52 @@ h2 {
   border: 10px, solid, black;
 }
 
+.centerMe {
+  padding: 3em;
+}
+
+#colorbox {
+  /*visibility: hidden;*/
+  display: none;
+}
+
+#question {
+  /*visibility: hidden;*/
+  display: none;
+}
+
+#keypad {
+  /*visibility: hidden;*/
+  display: none;
+}
+
+/*.terminal{
+  width: 20%;
+}*/
+
+.keyA{
+  margin-top: 1em;
+  /*padding: 1em;*/
+}
+
+.colorbox {
+    border: 2px solid black;
+    margin: 5px, 5px, 5px, 5px;
+    /*padding: 1em;*/
+    width: 80px;
+    height: 70px;
+    /*background: linear-gradient(gray, white);*/
+    background-color: white;
+    text-align: center;
+    font-weight: bolder;
+    /*float:left;
+    position: relative;*/
+    /*font-style: oblique;*/
+}
+
+#blankLine {
+  margin: 1em;
+}
 
 .key {
   border: 2px solid black;
