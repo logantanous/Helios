@@ -75,9 +75,17 @@ Alphanumeric Sequence:
 
 * Alert actual Success or Failure result
 
-* Check for KB input to get answer for question
+* Check for clicks on keypad for doorcode answer
+
+* Check for KB input to get answer for question <--
 
 * Check for clicks on color bar for color question answer
+
+* Add DIV for Talking to Person
+
+* Convert Question code to handle it.
+
+* Create looping mechansim to go through entire conversation tree with person.
 
 * Work out entry and exit conditions
 

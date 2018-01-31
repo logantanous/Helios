@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Orbitron);
+@import url('https://fonts.googleapis.com/css?family=Orbitron:400,900');
 
 html {
   background:  url(../img/colossus.jpg)
@@ -65,9 +65,47 @@ h2 {
   display: none;
 }
 
-/*.terminal{
-  width: 20%;
-}*/
+#people {
+  /*visibility: hidden;*/
+  display: none;
+}
+
+.picture {
+  float: left;
+
+  position: absolute;
+}
+
+#narration {
+    margin: 20px 20px 0 0;
+    min-width: 200px;
+    max-width: 500px;
+    overflow: auto;
+    float: right;
+    position: relative;
+}
+
+.moreStuff {
+  margin: 20px 40px 0 0;
+  margin-left: 15px;
+}
+
+img {
+  height: 150px;
+}
+
+#theyAsk {
+  font-weight: 900;
+}
+
+.decorateMe {
+  /*margin-top: 10%;
+  margin-right: 15%;*/
+  margin: auto;
+  padding: 1em;
+  background: linear-gradient(gray, white);
+  display: none;
+}
 
 .keyA{
   margin-top: 1em;
