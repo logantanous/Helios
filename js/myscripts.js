@@ -1,5 +1,6 @@
 // Business Logic
 var pressedKey = "";
+var access = false;
 
 function ComputerTerminal (status, name, buildingLocationNumber, roomNumber, locationX, locationY, type, questionArray, answerArray, success, failure) {
   this.status = status;
@@ -158,7 +159,6 @@ function showQuery(someTerminal){
 
     $('#myButton').bind('click', function(event) {
       // alert(event.target.id);
-      var access = false;
       // alert("answer colors: " + answerColors);
       // alert("Some terminal's type is: " + someTerminal.type);
       // alert("Some terminal's answer is: " + someTerminal.answerArray);
@@ -168,8 +168,9 @@ function showQuery(someTerminal){
         access = true;
         $('#colorboxes').unbind();
         $('#myButton').unbind();
-        alert("You solved the code!");
-        return access;
+        alert("You solved the code! " + access);
+        // return access;
+        return;
       } else {
         alert("You have failed!");
       }
@@ -428,7 +429,7 @@ $(document).ready(function() {
   // var colors = ["red", "green", "blue", "yellow"];
   // var myColor = 0;
   var dudes = [];
-  myTerminal = new ComputerTerminal("Locked", "Terminal", 1, 1, 10, 10, "colors", ["R","G","B","Y","B"], ["red","green","blue","yellow","blue"], "OPEN", "ALARM-5");
+  myTerminal = new ComputerTerminal("Locked", "Terminal", 1, 1, 10, 10, "colors", ["B","G","B","Y","B"], ["red","green","blue","yellow","blue"], "OPEN", "ALARM-5");
   myQuestionTerminal = new ComputerTerminal("Locked", "Terminal", 1, 1, 10, 10, "questions", ["What is your favorite color?", "1. Red", "2. Blue", "3. Purple"], ["3"], "OPEN", "ALARM-5");
   myKeypadTerminal = new ComputerTerminal("Locked", "Terminal", 1, 1, 10, 10, "keypad", [1,2,3,4,5,6,7,8,9], ["3"], "OPEN", "ALARM-5");
 
@@ -451,8 +452,13 @@ $(document).ready(function() {
   // var myKindOfTerminal = myKeypadTerminal;
 
   showQuery(myKindOfTerminal);
-  // challenge(myKindOfTerminal);
-  // talkToFolks(dudes[0]);
+  // // challenge(myKindOfTerminal);
+  // if (access) {
+  //   alert("Access is global!");
+  //   $("#colorboxes").css("display", "none");
+  //   $("#people").css("display", "block");
+    // talkToFolks(dudes[0]);
+  // }
 
   // $("#tell1").click(function(){
   //
